@@ -1,41 +1,69 @@
 package com.example.buttonsapp
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-    private var count = 0  // Variable to hold the count
-
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        // List of labels for each row
+        val labels = listOf("OV", "Pré-angariação", "Estudo de Mercado", "CMI assinado", "Transação",
+            "QC", "Qualificação", "Visitas", "Propostas", "Transação")
+
+        // Find all row layouts and set values dynamically
+        val rowIds = listOf(
+            R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5,
+            R.id.row6, R.id.row7, R.id.row8, R.id.row9, R.id.row10
+        )
+
+        for (i in rowIds.indices) {
+            val rowView = findViewById<View>(rowIds[i])
+            val labelTextView = rowView.findViewById<TextView>(R.id.text_label)
+            val counterTextView = rowView.findViewById<TextView>(R.id.text_counter)
+            val plusButton = rowView.findViewById<Button>(R.id.button_plus)
+            val minusButton = rowView.findViewById<Button>(R.id.button_minus)
+
+            // Set label text
+            labelTextView.text = labels[i]
+
+            // Plus button click event
+            plusButton.setOnClickListener {
+                val count = counterTextView.text.toString().toInt() + 1
+                counterTextView.text = count.toString()
+            }
+
+            // Minus button click event
+            minusButton.setOnClickListener {
+                val count = counterTextView.text.toString().toInt()
+                if (count > 0) {
+                    counterTextView.text = (count - 1).toString()
+                }
+            }
         }
 
-        // Initialize UI elements
-        val button: Button = findViewById(R.id.test)
-        val textView: TextView = findViewById(R.id.textTest)
+        // Expand/collapse functionality
+        setupExpandableSection(R.id.title_proprietario, R.id.container_proprietario)
+        setupExpandableSection(R.id.title_comprador, R.id.container_comprador)
+    }
 
-        // Set initial text
-        textView.text = count.toString()
+    private fun setupExpandableSection(titleId: Int, containerId: Int) {
+        val titleTextView = findViewById<TextView>(titleId)
+        val containerLayout = findViewById<LinearLayout>(containerId)
 
-        // Set button click listener
-        button.setOnClickListener {
-            count++  // Increment the count
-            textView.text = count.toString()  // Update TextView
+        titleTextView.setOnClickListener {
+            if (containerLayout.visibility == View.VISIBLE) {
+                containerLayout.visibility = View.GONE
+                titleTextView.text = titleTextView.text.toString().replace("▲", "▼") // Collapse
+            } else {
+                containerLayout.visibility = View.VISIBLE
+                titleTextView.text = titleTextView.text.toString().replace("▼", "▲") // Expand
+            }
         }
     }
 }
