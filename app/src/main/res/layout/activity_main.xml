@@ -135,7 +135,7 @@
             android:id="@+id/button_action1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Action 1"
+            android:text="Reset"
             android:backgroundTint="@color/blue"
             android:textColor="@android:color/white"
             android:padding="12dp"
@@ -145,7 +145,7 @@
             android:id="@+id/button_action2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Action 2"
+            android:text="Export CSV"
             android:backgroundTint="@color/blue"
             android:textColor="@android:color/white"
             android:padding="12dp"/>
