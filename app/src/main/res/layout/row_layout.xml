@@ -5,13 +5,14 @@
 
     <TextView
         android:id="@+id/text_label"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Label"
-        android:textSize="16sp"
+        android:layout_weight="2"
         android:ellipsize="end"
+        android:paddingEnd="10dp"
         android:singleLine="true"
-        android:paddingEnd="10dp"/>
+        android:text="Label"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/button_minus"
@@ -33,8 +34,8 @@
     <Button
         android:id="@+id/button_plus"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="+"
-        android:backgroundTint="@color/red"/>
+        android:backgroundTint="@color/red"
+        android:text="+" />
 </LinearLayout>

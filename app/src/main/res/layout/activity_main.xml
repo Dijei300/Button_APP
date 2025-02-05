@@ -47,7 +47,8 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:background="@color/gray"/>
+                    android:background="@color/gray"
+                    android:textColor="@color/blue"/>
 
                 <!-- Row Container (Initially Hidden) -->
                 <LinearLayout
@@ -107,7 +108,8 @@
                     android:textStyle="bold"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:background="@color/gray"/>
+                    android:background="@color/gray"
+                    android:textColor="@color/red"/>
 
                 <!-- Row Container (Initially Hidden) -->
                 <LinearLayout
