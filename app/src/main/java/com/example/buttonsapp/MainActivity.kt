@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.io.File
 import java.io.FileOutputStream
-import java.io.FileWriter
 import java.io.IOException
 import java.io.OutputStreamWriter
 import java.text.SimpleDateFormat
@@ -21,8 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var counterTextViews: List<TextView>
     private val labels = listOf(
-        "QV", "Pré-angariação", "Estudo de Mercado", "CMI assinado", "Transação",
-        "QC", "Qualificação", "Visitas", "Propostas", "Transação"
+        "QV", "Pre-angariacao", "Estudo de Mercado", "CMI assinado", "Transacao",
+        "QC", "Qualificacao", "Visitas", "Propostas", "Transacao"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

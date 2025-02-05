@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:padding="8dp">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Label (Fixed Width for Alignment) -->
     <TextView
         android:id="@+id/text_label"
         android:layout_width="150dp"
@@ -17,15 +13,14 @@
         android:singleLine="true"
         android:paddingEnd="10dp"/>
 
-    <!-- Minus Button -->
     <Button
         android:id="@+id/button_minus"
-        android:layout_width="65dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
-        android:text="-" />
+        android:layout_weight="1"
+        android:text="-"
+        android:backgroundTint="@color/blue"/>
 
-    <!-- Counter Text -->
     <TextView
         android:id="@+id/text_counter"
         android:layout_width="50dp"
@@ -35,12 +30,11 @@
         android:gravity="center"
         android:padding="10dp"/>
 
-    <!-- Plus Button -->
     <Button
         android:id="@+id/button_plus"
-        android:layout_width="67dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
-        android:text="+" />
-
+        android:layout_weight="1"
+        android:text="+"
+        android:backgroundTint="@color/red"/>
 </LinearLayout>
